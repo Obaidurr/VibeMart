@@ -2,106 +2,113 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Products | VibeMart</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="icon" type="image/png" href="favicon.png">
+  <title>VibeMart - Products</title>
   <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f9f9;
+    }
+    header {
+      background-color: #111;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+    }
+    #searchInput {
+      width: 90%;
+      max-width: 400px;
+      padding: 0.5rem;
+      margin-top: 1rem;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 2rem;
+    }
+    .product-card {
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      padding: 1.5rem;
+      text-align: center;
+      transition: transform 0.2s ease;
+    }
+    .product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+    }
+    .product-card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+    .product-card p {
+      font-size: 0.9rem;
+      color: #555;
+    }
+  </style>
 </head>
 <body>
+  <header>
+    <h1>VibeMart - Premium Foldable Accessories</h1>
+    <input type="text" id="searchInput" placeholder="Search products..." oninput="filterProducts()" />
+  </header>
 
-  <!-- ✅ Navbar -->
-  <nav class="navbar">
-    <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="products.html">Products</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-  </nav>
+  <main>
+    <div class="product-grid" id="productGrid"></div>
+  </main>
 
-  <!-- ✅ Search Bar -->
-  <div style="text-align: center; margin-top: 2rem;">
-    <input type="text" id="search-bar" placeholder="Search Products..." style="padding: 10px; width: 80%; max-width: 400px; border-radius: 8px; border: none; outline: none;" />
-  </div>
+  <script>
+    const products = [
+      { name: "Foldable Phone Screen Protectors", description: "Ultra-thin ও flexible প্রোটেকশন" },
+      { name: "Modular Magnetic Phone Cases", description: "MagSafe compatible detachable case system" },
+      { name: "Hinge Protection Covers", description: "Foldable phone hinge guard" },
+      { name: "Foldable-Compatible Power Banks", description: "Slim, dual-USB folding phones' design" },
+      { name: "Snap-on Game Controllers", description: "Foldable phones-এর জন্য ergonomic gaming" },
+      { name: "Wireless Split Earbuds Case", description: "Modular earbud accessories" },
+      { name: "Detachable Camera Lens Kits", description: "Foldable phones-এর pop-on lens" },
+      { name: "Foldable Mount Stands", description: "Tabletop folding phone kickstands" },
+      { name: "Smart Stylus Pen Holders", description: "Fold phones-compatible stylus grip" },
+      { name: "Foldable Charging Docks", description: "Flip-open style stand charger" },
+      { name: "Foldable Keyboard Pads", description: "Pocket keyboard designed for folding phone use" },
+      { name: "Compact Gimbals", description: "Fold-friendly mobile video stabilizers" },
+      { name: "Thermal Cooling Backs", description: "Gaming phone fold-attachable cooling plates" },
+      { name: "Modular Back Shells", description: "Swappable fashion panels for phones" },
+      { name: "Foldable Phone Wallet Clips", description: "Card/cash + fold mechanism safe design" },
+      { name: "Camera Ring Lights (clip-on)", description: "Influencer-grade lighting gear" },
+      { name: "Flexible Privacy Screens", description: "Reusable modular screen guard" },
+      { name: "Holographic Rear Skins", description: "Fold-tolerant hologram decals" },
+      { name: "Foldable-Compatible VR Headsets", description: "Wide display compatible VR shell" },
+      { name: "Anti-Slip Nano Holders", description: "Compact phone rest for folding phones" }
+    ];
 
-  <!-- ✅ Product Grid -->
-  <div id="product-grid" class="section">
-    <div class="product-card" data-id="p1" data-name="Wireless Earbuds" data-price="999" data-category="earbuds" data-brand="Apple">
-      <img src="images/vibeMart.jpg" alt="Earbuds" />
-      <h3>Earbuds</h3>
-      <p>৳999</p>
-      <button class="add-to-cart" data-id="p1" data-name="Earbuds" data-price="999">Add to Cart</button>
-    </div>
+    const grid = document.getElementById("productGrid");
 
-    <div class="product-card" data-id="p2" data-name="Phone Case" data-price="499" data-category="Case" data-brand="Apple">
-      <img src="images/vibeMart.jpg" alt="Phone Case" />
-      <h3>Phone Case</h3>
-      <p>৳499</p>
-      <button class="add-to-cart" data-id="p2" data-name="Phone Case" data-price="499">Add to Cart</button>
-    </div>
+    function displayProducts(list) {
+      grid.innerHTML = list.map(p => `
+        <div class="product-card">
+          <h3>${p.name}</h3>
+          <p>${p.description}</p>
+        </div>
+      `).join('');
+    }
 
-    <div class="product-card" data-id="p3" data-name="Cable" data-price="299" data-category="Cable" data-brand="Apple">
-      <img src="images/vibeMart.jpg" alt="Cable" />
-      <h3>Cable</h3>
-      <p>৳299</p>
-      <button class="add-to-cart" data-id="p3" data-name="Cable" data-price="299">Add to Cart</button>
-    </div>
+    function filterProducts() {
+      const query = document.getElementById("searchInput").value.toLowerCase();
+      const filtered = products.filter(p =>
+        p.name.toLowerCase().includes(query) ||
+        p.description.toLowerCase().includes(query)
+      );
+      displayProducts(filtered);
+    }
 
-  </div>
-
-  <!-- ✅ Cart Toggle Button -->
-  <button id="cart-toggle">🛒 Cart (<span id="cart-count">0</span>)</button>
-
-  <!-- ✅ Cart Panel -->
-  <div id="cart-panel" class="hidden">
-    <h2>Your Cart</h2>
-    <div id="cart-items"></div>
-    <p><strong>Total: ৳<span id="total-price">0</span></strong></p>
-    <button id="checkout-btn">Checkout</button>
-    <button id="clear-cart">Clear Cart</button>
-  </div>
-
-  <!-- ✅ Footer -->
-  <footer class="footer">
-    <div class="footer-container">
-      <div class="footer-section logo">
-        <h2>VibeMart</h2>
-        <p>Feel the vibe, shop the future.</p>
-      </div>
-
-      <div class="footer-section">
-        <h3>Quick Links</h3>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="products.html">Products</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-section">
-        <h3>Newsletter</h3>
-        <form class="newsletter-form">
-          <input type="email" placeholder="Enter your email" required />
-          <button type="submit">Subscribe</button>
-        </form>
-      </div>
-
-      <div class="footer-section contact">
-        <h3>Contact</h3>
-        <p>📞 +8801735616004</p>
-        <p>📧 bdgnobaidur@gmail.com</p>
-        <p>📍 Kamrangirchar,Dhaka, Bangladesh</p>
-      </div>
-    </div>
-
-    <div class="footer-bottom">
-      <p>&copy; 2025 VibeMart. All rights reserved.</p>
-    </div>
-  </footer>
-
-  <!-- ✅ JS -->
-  <script src="script.js"></script>
+    displayProducts(products);
+  </script>
 </body>
 </html>
