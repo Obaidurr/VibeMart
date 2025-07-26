@@ -1,0 +1,15 @@
+[
+    {
+      "id": "product1",
+      "name": "Wireless Earbuds",
+      "price": 999,
+      "quantity": 2
+    },
+    {
+      "id": "product3",
+      "name": "Type-C Cable",
+      "price": 299,
+      "quantity": 1
+    }
+  ]
+  

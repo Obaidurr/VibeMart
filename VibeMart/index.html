@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VibeMart</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon.png" />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="main-wrapper">
+   <div class="container">
+
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="logo-container">
+        <a href="index.html" class="logo-link">
+          <img src="images/vibeMart.jpg" alt="VibeMart Logo" class="logo-img" />
+          <span class="logo-text"></span>
+        </a>
+      </div>
+
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero-head">
+      <div class="slogan-wrapper">
+        <h1 class="slogan">Feel the vibe. Shop the future.</h1>
+      </div>
+      <div style="text-align: center; margin-top: 1rem;">
+        <input
+          type="text"
+          id="search-bar"
+          placeholder="Search VibeMart"
+          style="padding: 10px; width: 80%; max-width: 400px; border-radius: 8px; border: none; outline: none;"
+        />
+      </div>
+    </div>
+
+    <!-- Product Grid -->
+    <div id="product-grid">
+      <div class="product-card"
+           data-id="p1"
+           data-name="Wireless Earbuds"
+           data-price="999"
+           data-category="earbuds"
+           data-brand="Apple">
+        <img src="images/vibeMart.jpg" alt="Earbuds" />
+        <h3>Earbuds</h3>
+        <p>৳999</p>
+        <button class="add-to-cart"
+                data-id="p1"
+                data-name="Earbuds"
+                data-price="999">Add to Cart</button>
+      </div>
+
+      <div class="product-card"
+           data-id="p2"
+           data-name="Phone Case"
+           data-price="499"
+           data-category="Case"
+           data-brand="Apple">
+        <img src="images/vibeMart.jpg" alt="Phone Case" />
+        <h3>Phone Case</h3>
+        <p>৳499</p>
+        <button class="add-to-cart"
+                data-id="p2"
+                data-name="Phone Case"
+                data-price="499">Add to Cart</button>
+      </div>
+
+      <div class="product-card"
+           data-id="p3"
+           data-name="Cable"
+           data-price="299"
+           data-category="Cable"
+           data-brand="Apple">
+        <img src="images/vibeMart.jpg" alt="Cable" />
+        <h3>Cable</h3>
+        <p>৳299</p>
+        <button class="add-to-cart"
+                data-id="p3"
+                data-name="Cable"
+                data-price="299">Add to Cart</button>
+      </div>
+    </div>
+
+    <!-- Cart Icon -->
+    <button id="cart-toggle">🛒 Cart (<span id="cart-count">0</span>)</button>
+
+    <!-- Cart Panel -->
+    <div id="cart-panel" class="hidden">
+      <h2></h2>
+      <div id="cart-items"></div>
+      <p><strong>Total: ৳<span id="total-price">0</span></strong></p>
+      <button id="checkout-btn">Checkout</button>
+      <button id="clear-cart">Clear Cart</button>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-section logo">
+          <h2>VibeMart</h2>
+          <p>Feel the vibe, shop the future.</p>
+        </div>
+
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h3>Newsletter</h3>
+          <form class="newsletter-form">
+            <input type="email" placeholder="Enter your email" required />
+            <button type="submit">Subscribe</button>
+          </form>
+        </div>
+
+        <div class="footer-section contact">
+          <h3>Contact</h3>
+          <p>📞 +8801735616004</p>
+          <p>📧 bdgnobaidur@gmail.com</p>
+          <p>📍 Kamrangirchar, Dhaka, Bangladesh</p>
+        </div>
+      </div>
+
+        <div class="footer-bottom">
+  <p>&copy; 2025 VibeMart. All rights reserved.</p>
+  <div class="social-links">
+    <a href="https://facebook.com" target="_blank">Facebook</a>
+    <a href="https://instagram.com" target="_blank">Instagram</a>
+    <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+    <a href="https://twitter.com" target="_blank">Twitter</a>
+    <a href="https://wa.me/8801000000000" target="_blank"><i class="fab fa-whatsapp"></i></a>
+  </div>
+</div>
+    </footer>
+  </div>
+  </div>
+
+  <!-- JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>
